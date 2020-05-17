@@ -3,7 +3,7 @@
 #Author: Anubhav
 
 num=0
-no_of_files=$( ls -la | wc -l)
+no_of_files=$( ls | wc -l)
 
 function guess {
         echo "Can you guess how amny files are in the current directory?"
