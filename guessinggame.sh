@@ -2,26 +2,26 @@
 #File: guessinggame.sh
 #Author: Anubhav
 
-typeset -i num=0
-fileCounter=$( ls -la | wc -l)
+num=0
+no_of_files=$( ls -la | wc -l)
 
-function answer {
-	echo "Guess how many files are in the current directory"
-	read guess
+function guess {
+        echo "Can you guess how amny files are in the current directory?"
+        read input
 }
-while [[ $guess != $fileCounter ]]; do
-	num=num+1
-		if [[ -z $guess ]]; then
-				answer
-		elif [[ $guess < $fileCounter ]]; then
-				echo ""
-				echo "Guess Higher..."
-				answer
-		elif [[ $guess > $fileCounter ]]; then
-				echo ""
-				echo "Guess Lower..."
-				answer
-		fi
+while [[ $input != $no_of_files ]]; do
+        let num=$num+1
+                if [[ -z $input ]]; then
+                                guess
+                elif [[ $input < $no_of_files ]]; then
+                                echo ""
+                                echo "Guess a little higher."
+                                guess
+                elif [[ $input > $no_of_files ]]; then
+                                echo ""
+                                echo "Guess a little lower."
+                                guess
+                fi
 done
-echo "Correct! You guessed $num times"
+echo "Hey! you finally guessed correctly in $num trials."
 echo ""
