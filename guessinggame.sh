@@ -12,11 +12,11 @@ function guess {
 guess
 while [[ $input != $no_of_files ]]; do
         let num=$num+1
-                if [[ $input < $no_of_files ]]; then
+                if [[ $input -lt $no_of_files ]]; then
                                 echo ""
                                 echo "Guess a little higher."
                                 guess
-                elif [[ $input > $no_of_files ]]; then
+                elif [[ $input -gt $no_of_files ]]; then
                                 echo ""
                                 echo "Guess a little lower."
                                 guess
